@@ -66,7 +66,7 @@ class _HomexState extends State<Homex> {
           Center(
             heightFactor: 2,
             child: Text(
-              "LE PIU' CERCATE",
+              "LE PIU' CERCATEE",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
