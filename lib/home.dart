@@ -13,13 +13,11 @@ class _HomexState extends State<Homex> {
   final textFieldValueHolder = TextEditingController();
   String result = '';
 
-
   // getTextInputData --> Funzione richiamata quando si preme il tasto ricerca
   getTextInputData() {
     result = textFieldValueHolder.text;
     result = result.replaceFirst(RegExp(' '), '+');
-    mappa.launchURL(
-        'http://sanoegustoso.com/?s=$result');
+    mappa.launchURL('http://sanoegustoso.com/?s=$result');
   }
 
   @override
@@ -51,15 +49,23 @@ class _HomexState extends State<Homex> {
 
                 child: TextField(
                   controller: textFieldValueHolder,
+                  cursorColor: Colors.deepOrange,
+                  style: TextStyle(color: Colors.white), // COLORE TESTO
                   obscureText: false,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.orange, width: 3.0),
                     ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.white, width: 3.0),
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3.0),),
                     labelText: 'Cerca',
                   ),
-
                 ),
               ),
               Container(
@@ -81,6 +87,7 @@ class _HomexState extends State<Homex> {
               "IL RICETTARIO",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
+                color: Colors.white,
                 fontSize: 20,
               ),
             ),
@@ -117,6 +124,7 @@ class _HomexState extends State<Homex> {
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
+                color: Colors.white,
               ),
             ),
           ),

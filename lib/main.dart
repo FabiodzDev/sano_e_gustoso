@@ -53,9 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,  // DOVREBBE NON MANDARE IN OVERFLOW I BOTTONI
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black87,
       appBar: AppBar(
-        title: Text('SANO E GUSTOSO'),
+        title: Text('SANO E GUSTOSO', style: TextStyle(
+          color: Colors.black,
+        ),),
         centerTitle: true,
         backgroundColor: Colors.deepOrangeAccent,
       ),
