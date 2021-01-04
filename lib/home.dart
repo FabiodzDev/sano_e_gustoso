@@ -9,11 +9,24 @@ class Homex extends StatefulWidget {
 class _HomexState extends State<Homex> {
   MappaGoogle mappa = MappaGoogle();
 
+  // il richiamo della classe TextEditingController è necessario per capire il testo che l'utente scrive nel FieldText
+  final textFieldValueHolder = TextEditingController();
+  String result = '';
+
+
+  // getTextInputData --> Funzione richiamata quando si preme il tasto ricerca
+  getTextInputData() {
+    result = textFieldValueHolder.text;
+    result = result.replaceFirst(RegExp(' '), '+');
+    mappa.launchURL(
+        'http://sanoegustoso.com/?s=$result');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Container(
-          padding: EdgeInsets.all(3),
+      padding: EdgeInsets.all(3),
       child: ListView(
         children: [
           Center(
@@ -21,12 +34,46 @@ class _HomexState extends State<Homex> {
             child: Text(
               "Ricette con pentole AMC",
               style: TextStyle(
-                fontStyle: FontStyle.italic,  // corsivo
+                fontStyle: FontStyle.italic, // corsivo
                 fontWeight: FontWeight.w500,
                 fontSize: 17,
                 color: Colors.deepOrange,
               ),
             ),
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                // MODULO X CERCARE UNA DETERMINATA RICETTA
+
+                child: TextField(
+                  controller: textFieldValueHolder,
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    labelText: 'Cerca',
+                  ),
+
+                ),
+              ),
+              Container(
+                child: FlatButton(
+                  onPressed: getTextInputData,
+                  child: Icon(
+                    Icons.search,
+                    size: 40,
+                    color: Colors.deepOrangeAccent,
+                    semanticLabel: 'Trova',
+                  ),
+                ),
+              )
+            ],
           ),
           Center(
             heightFactor: 2,
@@ -66,14 +113,13 @@ class _HomexState extends State<Homex> {
           Center(
             heightFactor: 2,
             child: Text(
-              "LE PIU' CERCATEE",
+              "LE PIU' CERCATE",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
               ),
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,8 +127,7 @@ class _HomexState extends State<Homex> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=riso');
+                    mappa.launchURL('http://sanoegustoso.com/?s=riso');
                   },
                   child: Container(
                     height: 200,
@@ -102,8 +147,7 @@ class _HomexState extends State<Homex> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=vellutata');
+                    mappa.launchURL('http://sanoegustoso.com/?s=vellutata');
                   },
                   child: Container(
                     height: 200,
@@ -117,7 +161,6 @@ class _HomexState extends State<Homex> {
                   ),
                 ),
               ),
-
             ],
           ),
           SizedBox(
@@ -130,8 +173,7 @@ class _HomexState extends State<Homex> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=minestrone');
+                    mappa.launchURL('http://sanoegustoso.com/?s=minestrone');
                   },
                   child: Container(
                     height: 200,
@@ -151,8 +193,7 @@ class _HomexState extends State<Homex> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=pesc');
+                    mappa.launchURL('http://sanoegustoso.com/?s=pesc');
                   },
                   child: Container(
                     height: 200,
@@ -178,8 +219,7 @@ class _HomexState extends State<Homex> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=pollo');
+                    mappa.launchURL('http://sanoegustoso.com/?s=pollo');
                   },
                   child: Container(
                     height: 200,
@@ -193,15 +233,13 @@ class _HomexState extends State<Homex> {
                   ),
                 ),
               ),
-
               SizedBox(
                 width: 5,
               ),
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=manzo');
+                    mappa.launchURL('http://sanoegustoso.com/?s=manzo');
                   },
                   child: Container(
                     height: 200,
@@ -227,8 +265,7 @@ class _HomexState extends State<Homex> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    mappa.launchURL(
-                        'http://sanoegustoso.com/?s=maial');
+                    mappa.launchURL('http://sanoegustoso.com/?s=maial');
                   },
                   child: Container(
                     height: 200,
@@ -263,7 +300,6 @@ class _HomexState extends State<Homex> {
                   ),
                 ),
               ), // TORTA
-
             ],
           ),
           SizedBox(
@@ -272,8 +308,6 @@ class _HomexState extends State<Homex> {
           SizedBox(
             height: 10,
           ),
-
-
         ],
       ),
     ));
