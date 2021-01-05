@@ -42,7 +42,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List <Widget> myPages = [Homex(), Antipasti()];
+  List <Widget> myPages = [Homex(), Antipasti(), Antipasti()];
   int selectedIndex = 0;
 
   @override
@@ -53,13 +53,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       resizeToAvoidBottomPadding: false,  // DOVREBBE NON MANDARE IN OVERFLOW I BOTTONI
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.white,
+      floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Container(
+            decoration: BoxDecoration(
+                color: Colors.orange,
+                image: DecorationImage(
+                  image: AssetImage('images/logo.png'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(10))
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       appBar: AppBar(
         title: Text('SANO E GUSTOSO', style: TextStyle(
           color: Colors.black,
         ),),
         centerTitle: true,
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.orange,
       ),
       // drawer: menuDrawer(),
       body: myPages[selectedIndex],
@@ -72,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         } ,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.orange,
         selectedItemColor: Colors.white,
         selectedFontSize: 18,
         unselectedItemColor: Colors.white,
@@ -85,28 +101,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.sort,
+              Icons.person,
               color: Colors.white,
             ),
-            label: "ANTIP.",
+            label: "CHI SONO",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.sort,
-              color: Colors.white,
-            ),
-            label: "PRIMI",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.sort,
-            ),
-            label: "SECONDI",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sort),
-            label: "DOLCI",
-          ),
+
+
         ],
       ),
     );

@@ -35,7 +35,7 @@ class _HomexState extends State<Homex> {
                 fontStyle: FontStyle.italic, // corsivo
                 fontWeight: FontWeight.w500,
                 fontSize: 17,
-                color: Colors.deepOrange,
+                color: Colors.orange,
               ),
             ),
           ),
@@ -50,7 +50,7 @@ class _HomexState extends State<Homex> {
                 child: TextField(
                   controller: textFieldValueHolder,
                   cursorColor: Colors.deepOrange,
-                  style: TextStyle(color: Colors.white), // COLORE TESTO
+                  style: TextStyle(color: Colors.green), // COLORE TESTO
                   obscureText: false,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
@@ -60,7 +60,7 @@ class _HomexState extends State<Homex> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Colors.white, width: 3.0),
+                          color: Colors.green, width: 3.0),
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(3.0),),
@@ -74,7 +74,7 @@ class _HomexState extends State<Homex> {
                   child: Icon(
                     Icons.search,
                     size: 40,
-                    color: Colors.deepOrangeAccent,
+                    color: Colors.orange,
                     semanticLabel: 'Trova',
                   ),
                 ),
@@ -87,7 +87,7 @@ class _HomexState extends State<Homex> {
               "IL RICETTARIO",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Colors.green,
                 fontSize: 20,
               ),
             ),
@@ -103,7 +103,7 @@ class _HomexState extends State<Homex> {
                   child: Container(
                     height: 200,
                     decoration: BoxDecoration(
-                        color: Colors.orange,
+                        color: Colors.green,
                         image: DecorationImage(
                           image: AssetImage('images/ricettario.jpg'),
                           fit: BoxFit.cover,
@@ -124,7 +124,7 @@ class _HomexState extends State<Homex> {
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
-                color: Colors.white,
+                color: Colors.green,
               ),
             ),
           ),
